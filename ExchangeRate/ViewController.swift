@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var ExchangeView: UIView!
     @IBOutlet weak var USDTextField: UITextField!
     @IBOutlet weak var GHSTextField: UITextField!
+    @IBOutlet weak var rateLabel: UILabel!
     
     
     
@@ -22,6 +23,9 @@ class ViewController: UIViewController {
         ExchangeView.layer.borderWidth = 1.0
         ExchangeView.layer.borderColor = UIColor.lightGray.cgColor
         ExchangeView.layer.cornerRadius = 5
+        
+        self.rateLabel.layer.borderColor = UIColor.lightGray.cgColor
+        self.rateLabel.layer.borderWidth = 1.0
         
         USDTextField.addTarget(self, action: #selector(self.calculateGHS(_:)), for: .editingChanged)
         GHSTextField.addTarget(self, action: #selector(self.calculateUSD(_:)), for: .editingChanged)
@@ -41,7 +45,7 @@ class ViewController: UIViewController {
                 if let USD = Double(USDTextField.text!)
                 {
                     let newGHS = ExchangeRate.sharedInstance.USDGHS(u: USD)
-                    GHSTextField.text = "GHS\(round(1000 * newGHS) / 1000)"
+                    GHSTextField.text = "\(round(100 * newGHS) / 100)"
                 }
         }else{
             GHSTextField.text = ""
@@ -61,7 +65,7 @@ class ViewController: UIViewController {
             if let GHS = Double(GHSTextField.text!)
             {
                 let newUSD = ExchangeRate.sharedInstance.GHSUSD(i: GHS)
-                USDTextField.text = "$\(round(1000 * newUSD) / 1000)"
+                USDTextField.text = "\(round(100 * newUSD) / 100)"
             }
         }else{
             USDTextField.text = ""
