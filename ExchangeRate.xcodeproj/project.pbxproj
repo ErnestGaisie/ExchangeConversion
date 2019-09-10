@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171DE13D23279DC200617648 /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171DE13C23279DC200617648 /* Exchange.swift */; };
 		17C9531B23279D0000214A67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9531A23279D0000214A67 /* AppDelegate.swift */; };
 		17C9531D23279D0000214A67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C9531C23279D0000214A67 /* ViewController.swift */; };
 		17C9532023279D0000214A67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17C9531E23279D0000214A67 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		171DE13C23279DC200617648 /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
 		17C9531723279D0000214A67 /* ExchangeRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C9531A23279D0000214A67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C9531C23279D0000214A67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				17C9532123279D0500214A67 /* Assets.xcassets */,
 				17C9532323279D0500214A67 /* LaunchScreen.storyboard */,
 				17C9532623279D0500214A67 /* Info.plist */,
+				171DE13C23279DC200617648 /* Exchange.swift */,
 			);
 			path = ExchangeRate;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			files = (
 				17C9531D23279D0000214A67 /* ViewController.swift in Sources */,
 				17C9531B23279D0000214A67 /* AppDelegate.swift in Sources */,
+				171DE13D23279DC200617648 /* Exchange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

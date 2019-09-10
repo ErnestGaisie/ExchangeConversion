@@ -9,11 +9,67 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var ExchangeView: UIView!
+    @IBOutlet weak var USDTextField: UITextField!
+    @IBOutlet weak var GHSTextField: UITextField!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        ExchangeView.layer.borderWidth = 1.0
+        ExchangeView.layer.borderColor = UIColor.lightGray.cgColor
+        ExchangeView.layer.cornerRadius = 5
+        
+        USDTextField.addTarget(self, action: #selector(self.calculateGHS(_:)), for: .editingChanged)
+        GHSTextField.addTarget(self, action: #selector(self.calculateUSD(_:)), for: .editingChanged)
+        
+        self.isEditing = true
+
+   }
+    
+
+    @objc func calculateGHS(_ textfield: UITextField){
+        
+        
+        
+        if USDTextField.text! != ""
+            {
+            ExchangeView.layer.borderColor = UIColor.blue.cgColor
+                if let USD = Double(USDTextField.text!)
+                {
+                    let newGHS = ExchangeRate.sharedInstance.USDGHS(u: USD)
+                    GHSTextField.text = "GHS\(round(1000 * newGHS) / 1000)"
+                }
+        }else{
+            GHSTextField.text = ""
+            ExchangeView.layer.borderColor = UIColor.lightGray.cgColor
+        }
+       
+        
     }
+    
+    @objc func calculateUSD(_ textfield: UITextField){
+        
+       
+        
+        if GHSTextField.text! != ""
+        {
+             ExchangeView.layer.borderColor = UIColor.blue.cgColor
+            if let GHS = Double(GHSTextField.text!)
+            {
+                let newUSD = ExchangeRate.sharedInstance.GHSUSD(i: GHS)
+                USDTextField.text = "$\(round(1000 * newUSD) / 1000)"
+            }
+        }else{
+            USDTextField.text = ""
+             ExchangeView.layer.borderColor = UIColor.lightGray.cgColor
+        }
+    }
+    
+    
 
 
 }
